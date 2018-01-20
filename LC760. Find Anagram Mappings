@@ -1,0 +1,16 @@
+class Solution {
+    public int[] anagramMappings(int[] A, int[] B) {
+        HashMap<Integer,Integer> mapContainingBElements = new HashMap<>();
+        for(int i =0;i<B.length;i++){
+            mapContainingBElements.put(B[i],i);
+        }
+        int[] result = new int[A.length];
+        for(int i=0;i<A.length;i++){
+            int Aelement = A[i];
+            int index = mapContainingBElements.get(Aelement);
+            result[i]=index;
+        }
+        return result;
+        
+    }
+}
