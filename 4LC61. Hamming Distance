@@ -1,0 +1,48 @@
+class Solution {
+    public int hammingDistance(int x, int y) {
+        //convert x to binary
+        int xNumber = x;
+        int yNumber = y;
+        int result = 0;
+        Stack<Integer> xStack = new Stack();
+        Stack<Integer> yStack = new Stack();
+        while(xNumber!=0){
+            int remainder = xNumber%2;
+            xNumber=xNumber/2;
+            xStack.push(remainder) ;
+        }
+        while(yNumber!=0){
+            int remainder = yNumber%2;
+            yNumber=yNumber/2;
+            yStack.push(remainder) ;
+        }
+        String biggerStack = "equal";
+        if(xStack.size() - yStack.size()>0){
+          biggerStack = "xStack";
+        }
+        else if (xStack.size() - yStack.size()<0){
+            biggerStack = "yStack";
+        }
+        
+        while(xStack.size() != yStack.size()){
+            if(xStack.size() > yStack.size()){
+                yStack.push(0);
+            }
+            else  if(yStack.size() > xStack.size()){
+                xStack.push(0);
+            }
+                 
+       }
+        
+        while(!xStack.isEmpty() && !yStack.isEmpty()){
+         if(xStack.peek()!=yStack.peek()){      
+            result++;            
+         }
+         xStack.pop();
+         yStack.pop();    
+        
+      }
+      return result;
+        
+    }
+}
