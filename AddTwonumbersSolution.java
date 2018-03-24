@@ -1,3 +1,5 @@
+//This program adds two linked lists (reversed order)
+
 class AddTwoNumbersSolution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
